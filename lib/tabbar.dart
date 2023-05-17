@@ -18,6 +18,7 @@ class _MyTabBarState extends State<MyTabBar> {
           slivers: <Widget>[
             SliverMultilineAppBar(
               title: "Summer Trip to Tokyo and Kyoto",
+              
               leading: IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.menu),
@@ -31,29 +32,33 @@ class _MyTabBarState extends State<MyTabBar> {
                   onPressed: () {},
                   icon: const Icon(Icons.more_vert),
                 ),
-              ], tabbar: const TabBar(
+              ],
+              tabbar: const TabBar(
+                labelColor: Colors.orange,
+                labelStyle: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
                 tabs: [
-                    Tab(text: "data"),
-                    Tab(text: "data"),
-                    Tab(text: "data"),
+                Tab(text: "data"),
+                Tab(text: "data"),
+                Tab(text: "data"),
               ]),
             ),
-            SliverToBoxAdapter(
-              child: TabBarView(
-                children: [
-                  SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-                  return ListTile(
-                    title: Text("Item ${1+index}"),
-                  );
-                },
-                childCount: 20)),
-                ]
-              ),
-            )
-           
+            
+            //todo: error encountered
+            // SliverToBoxAdapter(
+            //   child: TabBarView(children: [
+            //     SliverList(
+            //         delegate: SliverChildBuilderDelegate((context, index) {
+            //       return ListTile(
+            //         title: Text("Item ${1 + index}"),
+            //       );
+            //     }, childCount: 20)),
+            //   ]),
+            // )
           ],
         ),
-        
       ),
     );
   }
@@ -86,7 +91,7 @@ class SliverMultilineAppBar extends StatelessWidget {
     return SliverAppBar(
       // pinned: true,
       floating: true,
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.transparent,
       expandedHeight: 150.0,
       forceElevated: true,
       leading: leading,
