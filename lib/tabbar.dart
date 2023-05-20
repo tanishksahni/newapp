@@ -17,8 +17,7 @@ class _MyTabBarState extends State<MyTabBar> {
         body: CustomScrollView(
           slivers: <Widget>[
             SliverMultilineAppBar(
-              title: "Summer Trip to Tokyo and Kyoto",
-              
+              title: "This is the finest community in your surrounding",
               leading: IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.menu),
@@ -34,18 +33,18 @@ class _MyTabBarState extends State<MyTabBar> {
                 ),
               ],
               tabbar: const TabBar(
-                labelColor: Colors.orange,
-                labelStyle: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-                tabs: [
-                Tab(text: "data"),
-                Tab(text: "data"),
-                Tab(text: "data"),
-              ]),
+                  labelColor: Colors.orange,
+                  labelStyle: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  tabs: [
+                    Tab(text: "data"),
+                    Tab(text: "data"),
+                    Tab(text: "data"),
+                  ]),
             ),
-            
+
             //todo: error encountered
             // SliverToBoxAdapter(
             //   child: TabBarView(children: [
@@ -90,25 +89,25 @@ class SliverMultilineAppBar extends StatelessWidget {
     }
     return SliverAppBar(
       // pinned: true,
-      floating: true,
-      backgroundColor: Colors.transparent,
-      expandedHeight: 150.0,
+      floating: false,
+      backgroundColor: Colors.black,
+      expandedHeight: 300.0,
       forceElevated: true,
       leading: leading,
       actions: actions,
       bottom: tabbar,
       flexibleSpace: FlexibleSpaceBar(
-        title: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxWidth: availableWidth,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
-            child: Text(
-              title,
-              textScaleFactor: .8,
-            ),
-          ),
+        stretchModes: const <StretchMode>[
+          StretchMode.zoomBackground,
+          StretchMode.blurBackground,
+          StretchMode.fadeTitle,
+        ],
+        collapseMode: CollapseMode.parallax,
+        title: Container(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(title,
+              overflow: TextOverflow.visible,
+              style: const TextStyle(color: Colors.white)),
         ),
       ),
     );
